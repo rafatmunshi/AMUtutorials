@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button onclick="return loadAsync()">Search</button>
+    <div id="search"></div>
+
+
+    <script>
+        function loadAsync() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("search").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+            xhttp.send();
+        }
+
+        loadAsync("url1", myFunction1);
+        loadAsync("url2", myFunction2);
+
+        function myFunction1(xhttp){
+// action goes here
+        }
+        function myFunction2(xhttp){
+// action goes here
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Personal details:</legend>
+            First name:
+            <input type="text" id="fname" name="fname" value="" required><br>
+            Last name:
+            <input type="text" id="lname" name="lname" value=""><br>
+            Gender<br>
+            Male<input type="radio" id="gender1" name="gender" value="male" disabled>
+            Female<input type="radio" id="gender2" name="gender" value="female">
+            Other<input type="radio" id="gender3" name="gender" value="other" disabled><br>
+            Blood group:
+            <select id="bloodgroup" name="bloodgroup">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+            </select><br>
+            <textarea rows="10" name="enjoying" cols="30" readonly>What are you enjoying most in this course?
+        </textarea><br>
+            Favourite Browser
+            <input list="favbrowser" name="favbrowser">
+            <datalist id="favbrowser">
+                <option value="IE">Internet Explorer</option>
+                <option value="chrome">Google Chrome</option>
+                <option value="firefox">Mozilla Firefox</option>
+                <option value="opera">Opera Mini</option>
+            </datalist>
+            <!-- <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+            <input type="button" value="DoesNothing"> --><br>
+            Date <input type="date" name="date" id="date"><br>
+         Number <input type="number" name="number" id="number" min="15" max="130"><br>
+         Range <input type="range" name="price" id="price" min="100" max="10000" step="10"><br>
+         Color <input type="color" name="color" id="color"><br>
+         Password <input type="password" name="password" id="password" placeholder="Enter password"><br>
+         File <input type="file" name="filename" id="filename"><br>
+         Email: <input type="email" name="email" id="email" autofocus>
+         URL of your website <input type="url" name="url" id="url">
+            <input type="submit" Value="Submit">
+            <input type="reset" value="Reset">
+            <input type="hidden" name="typeofuser" value="customer">
+        </fieldset>
+    </form>
+</body>
+
+</html>

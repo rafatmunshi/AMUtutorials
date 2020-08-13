@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="firstJS.js"></script>
+    <script src="secondJS.js"></script>
+    <style>
+        .redText {
+            color: red;
+        }
+    </style>
+    <script>
+        function scriptFunction() {
+            var button = document.getElementsByTagName("button")[0];
+            button.onclick = function () {
+                // alert("Hello World!");
+                button.innerHTML = "You changed me!";
+                console.log(this);
+                this.addEventListener("mouseover", function () {
+                    alert("Hello World!");
+                })
+            }
+        }
+        window.onload = scriptFunction;
+    </script>
+</head>
+
+<body>
+    <button id="button1">Click me</button>
+    <p>Some text</p>
+    <p id="demo"></p>
+    <script>
+        try {
+            allllert("Welcome guest!");
+        } catch (err) {
+            document.getElementById("demo").innerHTML = err.message;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var telephoneObj = {
+            color: "yellow",
+            year: 1979,
+            dial: "circular"
+        };
+        var myJSON = JSON.stringify(telephoneObj);
+
+        var obj = {
+            name: "fname",
+            age: function () {
+                return 30;
+            },
+            city: "New York"
+        };
+        obj.age = obj.age.toString();
+        var myJSON = JSON.stringify(obj);
+
+        var telephoneJson = '{"color": "yellow","year": 1979,"dial": "circular"}'
+        var myTelephoneObj = JSON.parse(telephoneJson);
+        console.log(myTelephoneObj.color);
+
+        for (let i in myTelephoneObj) {
+            console.log("Key : " + i + " Value " + myTelephoneObj[i]);
+        }
+
+        delete myTelephoneObj["dial"];
+
+        var text = '{ "name":"FName", "age":"function () {return 30;}", "city":"New York"}';
+        var obj = JSON.parse(text);
+        obj.age = eval("(" + obj.age + ")");
+    </script>
+</body>
+
+</html>

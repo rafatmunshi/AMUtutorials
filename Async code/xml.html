@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let text = "<mydefinition>" +
+            "<firstpart>" +
+            "<description>This is the first part</description>" +
+            "</firstpart>" +
+            "<secondpart>" +
+            "<description>This is the second part</description>" +
+            "</secondpart>" +
+            "<thirdpart>" +
+            "<banana>This is my wish, I create whatever I want to.</banana>" +
+            "</thirdpart>" +
+            "</mydefinition>";
+        let parser = new DOMParser();
+        xmlDoc = parser.parseFromString(text, "text/xml");
+
+        x = xmlDoc.getElementsByTagName("firstpart");
+        x = xmlDoc.documentElement.childNodes;
+        var txt;
+        for (i = 0; i < x.length; i++) {
+            // Process only element nodes (type 1)  
+            if (x[i].nodeType == 1) {
+                txt += x[i].nodeName + " ";
+            }
+        }
+
+        y = x.firstChild;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+/* div
+{
+width:100px;
+height:100px;
+background:red;
+animation:myfirst 5s;
+}
+
+@keyframes myfirst
+{
+from {background:red;}
+to {background:yellow;}
+} */
+
+
+.container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background-color: khaki;
+    }
+    
+    .overlay {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      background-color:midnightblue;
+      height:0;
+      transition: 0.5s;
+    }
+    
+    .container:hover .overlay {
+      bottom: 0;
+      height: 100%;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- <div></div> -->
+    <div class="container">
+      <div class="overlay">
+      </div>
+    </div>
+     
+
+</body>
+</html>

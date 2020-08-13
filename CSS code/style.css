@@ -1,0 +1,41 @@
+body{
+    background:rgb(255, 255, 255) url("https://skill-lync-portal.nyc3.digitaloceanspaces.com/sklcv3assets/images/banner/img3.png") no-repeat right top;
+     
+  }
+ .centertext{
+      text-align: center;
+  }
+  div, h2{
+      font-family: 'Rosario';
+  }
+  h2{
+      color: rgb(93, 178, 249);
+      font-size: 20px;
+       /* font-size: 150%; */
+      /* font-size: 1.5em; */
+      /* font-size: 1rem; */
+  }
+  /* h2, p{
+       text-indent: 50px; 
+  } */
+  /* h2~p{
+      color:red;
+  } */
+  hr{
+      width: 60%;
+  }
+  #noborderspace{
+      border-spacing: 0px;
+  }
+  tr:first-child td:nth-child(2){
+      border-bottom: 1px solid rgba(158, 156, 156, 0.664); border-right: 1px solid rgba(158, 156, 156, 0.664);
+  }
+  tr:first-child td:nth-child(3){
+      border-bottom: 1px solid rgba(158, 156, 156, 0.664); border-left: 1px solid rgba(158, 156, 156, 0.664);
+  }
+  tr:nth-child(2) td:first-child{
+      border-top: 1px solid rgba(158, 156, 156, 0.664); border-right: 1px solid rgba(158, 156, 156, 0.664);
+  }
+  tr:nth-child(2) td:nth-child(2){
+      border-left: 1px solid rgba(158, 156, 156, 0.664); border-top: 1px solid rgba(158, 156, 156, 0.664);
+  }

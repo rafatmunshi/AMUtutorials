@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button>Search</button>
+    <div id="div1"></div>
+    <script>
+        $("button").click(function () {
+            $("#div1").load("https://jsonplaceholder.typicode.com/users", function (responseTxt, statusTxt, xhr) {
+                if (statusTxt == "success")
+                 alert("External content loaded successfully!");
+                if (statusTxt == "error")
+                alert("Error: " + xhr.status + ": " + xhr.statusText);
+            });
+        });
+    </script>
+</body>
+
+</html>

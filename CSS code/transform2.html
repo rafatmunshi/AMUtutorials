@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div
+{
+width:100px;
+height:75px;
+background-color:red;
+border:1px solid black;
+}
+div#div1
+{
+margin:100px;
+transform:scale(2,4);
+}
+
+div#div2
+{
+/* transform:skew(30deg,20deg); */
+transform: matrix(1,-0.3,0,1,0,0);
+/* matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY()) */
+}
+</style>
+</head>
+<body>
+
+<div id="div1">Hello. This is a DIV element.</div>
+<div id="div2">Hello. This is a DIV element.</div>
+
+</body>
+</html>

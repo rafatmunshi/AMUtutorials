@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Worked well!")
+            }, 1000);
+            setTimeout(() => {
+                reject("Oops some issue")
+            }, 2500);
+        });
+        myPromise.then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        // $.when used in JQuery
+        // for knowing multiple promises completed.
+
+        let myPromise2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Promise 2');
+            }, 1500);
+        });
+
+        Promise.all([myPromise, myPromise2]).then((data) => {
+                console.log(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+/* Async Await Notes:
+	1. written like synchronous code
+    2. compatible with try/catch blocks
+    3. avoids chaining .then statements
+    4. async functions always return a promise
+    5. function pauses on each await expression
+    6. A non promise value is converted to 
+       Promise.resolve(value) and then resolved
+*/
+
+// Syntax
+// Function Declaration
+async function myFunction(){
+  await  // some code goes here
+}
+  
+// Arrow Declaration
+const myFunction2 = async () => {
+  await  // some code goes here
+}
+  
+ // OBJECT METHODS
+
+const obj = {
+	async getName() {
+		return fetch('https://www.example.com');
+	}
+}
+
+// IN A CLASS
+
+class Obj {
+	// getters and setter CANNOT be async
+	async getResource {
+		return fetch('https://www.example.com');
+	}
+}
+
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+//async function
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // expected output: 'resolved'
+  let username=1;
+  const resp= await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${username}`);
+  console.log(resp);
+  let users = await resp.json();
+  console.log(users);
+
+  try {
+    let response = await fetch('/no-user-here');
+    let user = await response.json();
+  } catch(err) {
+    // catches errors both in fetch and response.json
+    alert(err);
+  }
+
+}
+asyncCall();
+console.log("Doing other work now");
+
+
+// Compare promise with async await
+function loadJson(url) {
+  return fetch(url)
+    .then(response => {
+      if (response.status == 200) {
+        return response.json();
+      } else {
+        throw new Error(response.status);
+      }
+    })
+}
+
+loadJson('no-such-user.json')
+  .catch(alert); // Error: 404
+
+//async await code
+async function loadJson(url) { // (1)
+  let response = await fetch(url); // (2)
+
+  if (response.status == 200) {
+    let json = await response.json(); // (3)
+    return json;
+  }
+
+  throw new Error(response.status);
+}
+
+loadJson('no-such-user.json')
+  .catch(alert); // Error: 404 (4)
+
+        // Fetch API of browser returns promise
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+fetch('https://jsonplaceholder.typicode.com/users').then((res) => {
+                res.json().then((data) => {
+                    console.log(data);
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    </script>
+</body>
+
+</html>

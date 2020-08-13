@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+        div:first-child {
+            background-color: red;
+            text-align: center;
+            float: both;
+        }
+
+        div:nth-child(2) {
+            background-color: green;
+            position: relative;
+            clear: both;
+        }
+
+        div:nth-child(3) {
+            background-color: blue;
+        }
+
+        div:nth-child(3):hover {
+            width: 400px;
+        }
+
+        div div:first-child {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            /* position: absolute;
+            top: 200px;
+            left: 200px; */
+        }
+
+        /* h1{
+            text-align: center;
+        } */
+        div span {
+            display: block;
+            width: 100px;
+            margin: auto;
+            background-color: grey;
+        }
+
+        /* html body div#page ul#summer li.fav{         0 2 1 4
+
+        }  
+        li.fav{ 0 0 1 1
+
+        }
+        *{
+            0 0 0 0
+        }
+       
+        div[id=a] {     0 0 1 1
+            background-color: blue;
+        }
+        #a {            0 1 0 0     //more specific
+            background-color: yellow;
+        } 
+        */
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- <span>Hey this is amazing!</span>
+        <span>Can you feel it?</span> -->
+    </div>
+    <div></div>
+    <div>
+        <div></div>
+    </div>
+</body>
+
+</html>
