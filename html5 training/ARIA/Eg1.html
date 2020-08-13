@@ -1,0 +1,170 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+<HEAD >
+<TITLE>ARIA tab panel example</TITLE>
+
+<link rel="stylesheet" type="text/css" href="http://accessibility.athena-ict.com/accessibility.css"/>
+
+<style>
+.tabpanel {
+  margin: 20px;
+  padding: 0;
+ 
+}
+.tablist {
+  margin: 0 0px;
+  padding: 0;
+  list-style: none;
+}
+
+.tab {
+
+  margin: .2em 1px 0 0;
+  padding: 10px;
+  height: 1em;
+  font-weight: bold;
+ 
+
+  border: 1px solid black;
+	background:#dddddd;
+	border-top-left-radius:.5em;
+	border-top-right-radius:.5em;
+ 
+  float: left;
+  display: inline; /* IE float bug fix */
+}
+
+.panel {
+  clear: both;
+  display: block;
+  margin: 0 0 0 0;
+  padding: 10px;
+  width: 300px;
+  background:#f2f2f2;
+	border-bottom-left-radius:.5em;
+	border-bottom-right-radius:.5em;
+  
+}
+
+ul.controlList {
+  list-style-type: none;
+}
+
+li[aria-selected='true'] {
+  color: black;
+  background-color: #fff;
+  border-bottom: 1px solid white;
+}
+
+div[aria-hidden='true'] {
+   display: none;
+}
+div[aria-hidden='false'] {
+   display:block;
+}
+
+.focus {
+  margin-top: 0;
+  height: 1.2em;
+}
+
+.hidden {display:none;}
+
+
+</style>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("li[role='tab']").click(function(){
+	$("li[role='tab']:not(this)").attr("aria-selected","false");
+ 	//$("li[role='tab']").attr("tabindex","-1");
+	$(this).attr("aria-selected","true");
+	//$(this).attr("tabindex","0");
+  var tabpanid= $(this).attr("aria-controls");
+   var tabpan = $("#"+tabpanid);
+$("div[role='tabpanel']:not(tabpan)").attr("aria-hidden","true");
+$("div[role='tabpanel']:not(tabpan)").addClass("hidden");
+
+tabpan.removeClass("hidden");
+//tabpan.className = "panel";
+tabpan.attr("aria-hidden","false");		
+  });
+  
+  //This adds keyboard accessibility by adding the enter key to the basic click event.
+  $("li[role='tab']").keydown(function(ev) {
+if (ev.which ==13) {
+$(this).click();
+}
+}); 
+ 
+  //This adds keyboard function that pressing an arrow left or arrow right from the tabs toggel the tabs. 
+   $("li[role='tab']").keydown(function(ev) {
+if ((ev.which ==39)||(ev.which ==37))  {
+var selected= $(this).attr("aria-selected");
+if  (selected =="true"){
+	$("li[aria-selected='false']").attr("aria-selected","true").focus() ;
+	$(this).attr("aria-selected","false");
+
+  var tabpanid= $("li[aria-selected='true']").attr("aria-controls");
+   var tabpan = $("#"+tabpanid);
+$("div[role='tabpanel']:not(tabpan)").attr("aria-hidden","true");
+$("div[role='tabpanel']:not(tabpan)").addClass("hidden");
+
+tabpan.attr("aria-hidden","false");
+tabpan.removeClass("hidden");
+//tabpan.className = "panel";
+
+
+}
+}
+}); 
+
+}); 
+</script>
+
+</HEAD>
+
+<BODY >
+
+<h1>ARIA Tab Panel Example</h1>
+
+ <ul class="tablist" role="tablist">
+
+   <li id="tab1" class="tab" aria-controls="panel1" aria-selected="false" role="tab" tabindex="0">Prices</li>
+
+   <li id="tab2" class="tab" aria-controls="panel2" role="tab" aria-selected="true" tabindex="1">Features </li>
+
+   </ul>
+
+
+<div id="panel1" class="panel hidden" aria-labelledby="tab1" role="tabpanel" aria-hidden="true">
+
+ <h3 tabindex="0">Prices</h3>
+        List of prices   
+</div>
+
+<div id="panel2" class="panel" aria-labelledby="tab2" role="tabpanel" aria-hidden="false">
+  <h3 tabindex="0">Features</h3>
+
+    List of product features....
+ </div>
+
+<h2>Notes:  </h2>
+<p>Although the code is short and simple, it is fully accessible. This example uses: </p>
+<ol>
+  <li>aria-selected to show what tab is selected</li>
+  <li>aria-controls to show the relationship between tabs and tab panels</li>
+  <li>aria-hidden, to hide the unselected tab panel</li>
+  <li>When an tab is selected the following states are toggled: aria-selected in both tab elements and aria-hidden on both tab panels.</li>
+  <li> CSS selectors are used to bind aria-hidden and CSS display:none.</li>
+  <li>CSS selectors are used to bind aria-selected and the classes for selected or non selected tab panels.</li>
+  <li>Keyboard accessibility is given by  adding the enter key to the basic click event in the jQuery code.</li>
+  <li>The tabs can also toggle using the left and right arrow keys (as a jQuery function)</li>
+  <li>Note that often only the active tab is in the tabbing order. However, in this example both tabs are always in the tabbing order. I felt this pattern worked better for this context.</li>
+</ol>
+<p>&nbsp;</p>
+</div>
+</BODY>
+</HTML>

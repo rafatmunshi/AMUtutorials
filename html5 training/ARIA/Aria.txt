@@ -1,0 +1,9 @@
+p. Is a technical specification published by the World Wide Web Consortium.
+p. It specifies how to increase accesibilties in web pages i.e dynamic content & user interface
+p. Targets UI developed with Ajax,HTML & Javascript.
+p. Describes how to add semantics & metadata to make user interface & dynamic content more accessible.
+p. Aria is divided into 3 -> roles, states & properties.
+p. Roles are widgets not avbl in html 4 eg -> sliders, menu bars, tabs, and dialogs.
+p. Properties describe characteristics of these widgets.
+p. States describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden.
+p.
